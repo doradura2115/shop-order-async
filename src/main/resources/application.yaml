@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: shop-order-async
+  datasource:
+    url: jdbc:postgresql://localhost:5432/shopdb
+    username: postgres
+    password: 5356
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+server:
+  port: 8086
+
+logging:
+  level:
+    root: INFO
+    com.example.shop_order_async: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss.SSS} %-5level [%thread] [corr=%X{correlationId}] %logger{36} - %msg%n"
